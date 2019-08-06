@@ -1,11 +1,30 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Manager : MonoBehaviour
 {
-    [SerializeField] private Material[] _skyboxMaterials;
+    [SerializeField] private List<AssetReference> _skyboxMaterials;
+
+    private AsyncOperationHandle<Material>  _currentSkyboxMaterialOperationHandle;
 
     public void SetSkybox(int skyboxIndex)
     {
-        RenderSettings.skybox = _skyboxMaterials[skyboxIndex];
+        StartCoroutine(SetSkyboxInternal(skyboxIndex));
+    }
+
+    private IEnumerator SetSkyboxInternal(int skyboxIndex)
+    {
+        if (_currentSkyboxMaterialOperationHandle.IsValid())
+        {
+            Addressables.Release(_currentSkyboxMaterialOperationHandle);
+        }
+
+        var skyboxMaterialReference = _skyboxMaterials[skyboxIndex];
+        _currentSkyboxMaterialOperationHandle = skyboxMaterialReference.LoadAssetAsync<Material>();
+        yield return _currentSkyboxMaterialOperationHandle;
+        RenderSettings.skybox = _currentSkyboxMaterialOperationHandle.Result;
     }
 }
