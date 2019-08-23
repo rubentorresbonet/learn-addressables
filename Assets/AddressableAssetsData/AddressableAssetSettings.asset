@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: 6bb332844b0a7df41a07022f20b00af1
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 3d86c12821ef51942aeec9b4a50efced
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: 0d63ab05f3e9be84782782dae23877a9
   m_overridePlayerVersion: 
   m_GroupAssets:
-  - {fileID: 11400000, guid: 8aae192919e4e9b429f07951a0c5e008, type: 2}
   - {fileID: 11400000, guid: 393d3f45dc03d1a409338765b616f7d1, type: 2}
+  - {fileID: 11400000, guid: 9b97aa0ca5d136d4b9fb50e6e4d98a4b, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -43,6 +43,20 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 0d63ab05f3e9be84782782dae23877a9
         m_Value: http://localhost/[BuildTarget]
+    - m_InheritedParent: 
+      m_Id: acfd4415330e2f74a899889896b8c58a
+      m_ProfileName: Remote
+      m_Values:
+      - m_Id: 4746bfcd2248a6342bd9382fc02f7b0e
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 93e0e1a57f0379249834e8b054f5fcae
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: ebdfb51dbe3264447903fdc27fe0e074
+        m_Value: http://localhost:8000/[BuildTarget]
+      - m_Id: 3d86c12821ef51942aeec9b4a50efced
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 0d63ab05f3e9be84782782dae23877a9
+        m_Value: http://localhost:8000/[BuildTarget]
     m_ProfileEntryNames:
     - m_Id: 4746bfcd2248a6342bd9382fc02f7b0e
       m_Name: BuildTarget
@@ -63,6 +77,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Skybox
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 382440f210cb7ba45be75430ed0f68c5, type: 2}
@@ -76,9 +91,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 125b7a66e949e024d9639e0cc5413d5b, type: 2}
   - {fileID: 11400000, guid: 66037d62b29654043be44c1ca966e145, type: 2}
   - {fileID: 11400000, guid: f0719c51a5a3175439a34622c9feaca4, type: 2}
-  m_ActiveProfileId: 625667358423d4d44b53e3cd05a66ce6
+  m_ActiveProfileId: acfd4415330e2f74a899889896b8c58a
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}
-    m_NextInstanceId: 0
-    m_RegisteredServiceTypeRefs: []
+    m_NextInstanceId: 1
+    m_RegisteredServiceTypeRefs:
+    - UnityEditor.AddressableAssets.HostingServices.HttpHostingService, Unity.Addressables.Editor

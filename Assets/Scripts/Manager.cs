@@ -21,9 +21,12 @@ public class Manager : MonoBehaviour
         {
             Addressables.Release(_currentSkyboxMaterialOperationHandle);
         }
-
+        
         var skyboxMaterialReference = _skyboxMaterials[skyboxIndex];
         _currentSkyboxMaterialOperationHandle = skyboxMaterialReference.LoadAssetAsync<Material>();
+        // You also have this option:
+        // _currentSkyboxMaterialOperationHandle = Addressables.LoadAssetAsync<Material>("Skybox" + skyboxIndex);
+
         yield return _currentSkyboxMaterialOperationHandle;
         RenderSettings.skybox = _currentSkyboxMaterialOperationHandle.Result;
     }
